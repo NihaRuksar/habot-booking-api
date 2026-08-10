@@ -20,11 +20,18 @@
 
 HabotConnect needed proof that a candidate could think like a backend engineer on day one — not just write code that runs, but design a system that protects itself from mistakes. This repo simulates the most demanding day on the job: a booking module that has to be **correct, fast, and honest about its own failures**.
 
-Every design choice below was made with one question in mind: *if this shipped to production tomorrow, would it hold up?*
+
+---
+## 🌟 What I added beyond the brief
+
+The spec asked for a working booking module. I built one that a teammate could pick up on day one without asking me a single question — live API docs instead of static descriptions, an admin panel to actually see the data, a seeder so no one has to hand-craft test records, structured logging, and validation that catches bad input before it becomes a bad row in the database.
+
+That's the standard I held this project to, and it's the standard I'd hold my work to on the team.
 
 ---
 
 ## ✨ What's inside
+Every design choice below was made with one question in mind: *if this shipped to production tomorrow, would it hold up?*
 
 | Capability | Where |
 |---|---|
@@ -142,13 +149,6 @@ Every push runs the full test suite automatically via GitHub Actions — see `.g
 
 ---
 
-## 🌟 What I added beyond the brief
-
-The spec asked for a working booking module. I built one that a teammate could pick up on day one without asking me a single question — live API docs instead of static descriptions, an admin panel to actually see the data, a seeder so no one has to hand-craft test records, structured logging, and validation that catches bad input before it becomes a bad row in the database.
-
-That's the standard I held this project to, and it's the standard I'd hold my work to on the team.
-
----
 
 ## 👩‍💻 Author
 
