@@ -154,4 +154,4 @@ Every push runs the full test suite automatically via GitHub Actions — see `.g
 
 **Niha**
 Backend Developer — Python | Django | FastAPI | REST APIs
-📧 [add your email] · 🔗 [add your LinkedIn/portfolio]
+📧 [niharuksar2002@gmail.com] · 🔗 <a href="https://www.linkedin.com/in/niha-ruksar/"> LinkedIn </a> <a href="https://niharuksar-portfolio.netlify.app/">Portfolio</a>
