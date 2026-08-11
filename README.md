@@ -1,3 +1,4 @@
+**Niha** 📧 [niharuksar2002@gmail.com] · 🔗 <a href="https://www.linkedin.com/in/niha-ruksar/"> LinkedIn </a> 
 # 🎓 HabotConnect LSA Booking API
 
 > A production-style backend that connects parents with Learning Support Assistants (LSAs) for children with learning difficulties — built as a hiring simulation for HabotConnect FZCO, and then pushed a bit further than asked.
@@ -94,6 +95,20 @@ Fetching 50 LSAs shouldn't mean 51 database round-trips. `prefetch_related("book
 Bookings don't confirm themselves — they wait in `PENDING` until an external event (a mock payment gateway callback) tells them to become `CONFIRMED` or `FAILED`. This is how Stripe, Razorpay, and every real payment integration actually works.
 
 ---
+## 🏛 Why MVT (Django), not MVC
+
+Django follows **MVT (Model-View-Template)**, a variant of the classic **MVC (Model-View-Controller)** pattern:
+
+| | MVC | MVT (Django) |
+|---|---|---|
+| Data + rules | Model | Model |
+| Request handling | Controller | View |
+| Presentation | View | Template |
+
+The naming is the confusing part — Django's "View" plays the role MVC calls the "Controller" (it receives the request and decides what happens), while Django's "Template" plays the role MVC calls the "View" (the actual presentation layer). Django's framework itself acts as the traffic router that MVC leaves to the developer.
+
+For this API, there's no Template layer in the traditional sense — DRF serializers act as the presentation/formatting layer instead, turning Model instances into JSON. So the practical mapping here is: **Model → schema, View → request logic + validation trigger, Serializer → the "shape" of what goes out.**
+---
 
 ## 🚀 Quick start
 
@@ -154,4 +169,4 @@ Every push runs the full test suite automatically via GitHub Actions — see `.g
 
 **Niha**
 Backend Developer — Python | Django | FastAPI | REST APIs
-📧 [niharuksar2002@gmail.com] · 🔗 <a href="https://www.linkedin.com/in/niha-ruksar/"> LinkedIn </a> <a href="https://niharuksar-portfolio.netlify.app/">Portfolio</a>
+📧 [niharuksar2002@gmail.com] · 🔗 <a href="https://www.linkedin.com/in/niha-ruksar/"> LinkedIn </a> · 🔗 <a href="https://niharuksar-portfolio.netlify.app/">Portfolio</a>
