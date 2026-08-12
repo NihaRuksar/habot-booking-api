@@ -9,11 +9,6 @@
 [![DRF](https://img.shields.io/badge/DRF-3.x-red)]()
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)]()
 
----
-
-## 🔗 Live Demo
-
-> _Link coming soon_
 
 ---
 
