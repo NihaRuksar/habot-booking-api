@@ -2,21 +2,26 @@
 Django settings for habotconnect project.
 """
 
+import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# This is fine for this project/demo — for a real production deploy,
-# this would be pulled from an environment variable instead.
-SECRET_KEY = 'django-insecure-u&**(2!=1oco6hnk57i1n0kguj*x*+scd0_un2^e=b@u%5ob@!'
+# Falls back to a dev-only key locally; set SECRET_KEY as an env var in production.
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-u&**(2!=1oco6hnk57i1n0kguj*x*+scd0_un2^e=b@u%5ob@!'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [h.strip() for h in os.environ.get('ALLOWED_HOSTS', '').split(',') if h.strip()]
+if DEBUG:
+    ALLOWED_HOSTS += ['localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if h]
 
 
 # Application definition
@@ -46,6 +51,7 @@ SPECTACULAR_SETTINGS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -114,6 +120,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
